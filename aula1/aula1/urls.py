@@ -4,8 +4,8 @@ from .views import saudacao, personal_data, product
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('saudacao/', saudacao),
+    path('saudacao/<str:nome>', saudacao),
     path('personal/', personal_data),
-    path('product/', product)
+    path('product/<int:id>', product)
     
 ]

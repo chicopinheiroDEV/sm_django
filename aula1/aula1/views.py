@@ -1,7 +1,7 @@
 from django.http import HttpResponse, JsonResponse
 
-def saudacao(request):
-    return HttpResponse("Olá Usuário")
+def saudacao(request, nome):
+    return HttpResponse(f'Olá {nome}! Seu nome tem {len(nome)} caracteres ')
 
 def personal_data(request):
     return JsonResponse({
@@ -25,5 +25,7 @@ products = [
     }
 ]
 
-def product(request):
-    return HttpResponse(products)
+def product(request, id):
+    for product in products:
+        if product['id'] == id:
+                return JsonResponse(product)
